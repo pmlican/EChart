@@ -11,7 +11,13 @@ import WebKit
 
 class EChartView: UIView {
 
-    var webView: WKWebView!
+    lazy var webView: WKWebView = {
+        let configuration = WKWebViewConfiguration()
+        let webView = WKWebView(frame: .zero, configuration: configuration)
+        webView.uiDelegate = self
+        webView.scrollView.isScrollEnabled = false
+        return webView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,30 +28,39 @@ class EChartView: UIView {
         setupUI()
     }
     private func setupUI() {
-        let configuration = WKWebViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: configuration)
+
         addSubview(webView)
         if let url = Bundle.main.url(forResource: "index", withExtension: "html") {
             let request = URLRequest(url: url)
             webView.load(request)
         }
-        webView.scrollView.isScrollEnabled = false
     }
     func resizeContainer(size:CGSize) {
-        let js = "resizeContainer(\(size.width),\(size.height))"
-        webView.evaluateJavaScript(js, completionHandler: nil)
+        let js = "resizeContainer(\(200),\(size.height))"
+        evaluateJS(js)
     }
     func resize3() {
-        let js1 = "resize2('height:300px;width:375px;')"
-        webView.evaluateJavaScript(js1, completionHandler: nil)
+        let js = "resize2('height:300px;width:100px;')"
+        evaluateJS(js)
+    }
+    
+    func evaluateJS(_ js: String) {
+        webView.evaluateJavaScript(js) { (result, error) in
+            if let result = result {
+                print(result)
+            }
+        }
     }
     override func layoutSubviews() {
         super.layoutSubviews()
         webView.frame = bounds
-//        resizeContainer(size: bounds.size)
-//        webView.evaluateJavaScript("test()", completionHandler: nil)
-        let js1 = "resize2('height:\(bounds.size.height)px;width:\(bounds.size.width)px;')"
-        webView.evaluateJavaScript(js1, completionHandler: nil)
-
+    }
+}
+extension EChartView: WKUIDelegate {
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+        let alert = UIAlertController(title: "调试", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+        completionHandler()
     }
 }

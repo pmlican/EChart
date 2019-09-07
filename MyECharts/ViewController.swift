@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let chartView = EChartView(frame: CGRect(x: 0, y: 100, width: 300, height: 300))
+    let chartView = EChartView(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 300))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +23,10 @@ class ViewController: UIViewController {
         
     }
     @objc func clickBtn(_ sender: UIButton) {
-//        chartView.webView.evaluateJavaScript("test()", completionHandler: nil)
-        let js1 = "resize2('height:300px;width:375px;')"
-        chartView.webView.evaluateJavaScript(js1, completionHandler: nil)
+        //rem  除以16
+        let js = "resizeContainer(200,300)"
+        let js1 = "resize2('height:200px;width:200px;')"
+        chartView.evaluateJS(js)
     }
 
 
