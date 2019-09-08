@@ -48,6 +48,14 @@ class TestViewController: UIViewController {
 //        let sDicData = try encoder.encode(sDic2)
         
         do {
+            let sDic2Data = try JSONSerialization.data(withJSONObject: sDic2, options: .prettyPrinted)
+            print(String(data: sDic2Data, encoding: .utf8)!)
+        } catch let error {
+            print(error)
+        }
+        
+        
+        do {
             let data = try encoder.encode(s)
             let string = String(data: data, encoding: .utf8)!
             print(string)
