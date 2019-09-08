@@ -16,6 +16,11 @@
 		E6A6CEE62322570F000D1301 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = E6A6CEE52322570F000D1301 /* index.html */; };
 		E6A6CEE82322580D000D1301 /* EChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6CEE72322580D000D1301 /* EChartView.swift */; };
 		FB43908B232349A0001A7BDA /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = FB43908A232349A0001A7BDA /* test.html */; };
+		FB43908D2323FA13001A7BDA /* area-simple.html in Resources */ = {isa = PBXBuildFile; fileRef = FB43908C2323FA13001A7BDA /* area-simple.html */; };
+		FB43908F23240782001A7BDA /* highcharts-large.html in Resources */ = {isa = PBXBuildFile; fileRef = FB43908E23240781001A7BDA /* highcharts-large.html */; };
+		FB4390912324CEEE001A7BDA /* EChartOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4390902324CEEE001A7BDA /* EChartOptions.swift */; };
+		FB4390932324FA6F001A7BDA /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4390922324FA6F001A7BDA /* SwiftyJSON.swift */; };
+		FB4390B3232557CF001A7BDA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4390B2232557CF001A7BDA /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		E6A6CEE52322570F000D1301 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		E6A6CEE72322580D000D1301 /* EChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EChartView.swift; sourceTree = "<group>"; };
 		FB43908A232349A0001A7BDA /* test.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
+		FB43908C2323FA13001A7BDA /* area-simple.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "area-simple.html"; sourceTree = "<group>"; };
+		FB43908E23240781001A7BDA /* highcharts-large.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "highcharts-large.html"; sourceTree = "<group>"; };
+		FB4390902324CEEE001A7BDA /* EChartOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EChartOptions.swift; sourceTree = "<group>"; };
+		FB4390922324FA6F001A7BDA /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		FB4390B2232557CF001A7BDA /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,11 +75,15 @@
 				E6A6CEDD2322547F000D1301 /* ECharts */,
 				E6A6CECB23225470000D1301 /* AppDelegate.swift */,
 				E6A6CECD23225470000D1301 /* ViewController.swift */,
+				FB4390922324FA6F001A7BDA /* SwiftyJSON.swift */,
+				FB43908C2323FA13001A7BDA /* area-simple.html */,
+				FB43908E23240781001A7BDA /* highcharts-large.html */,
 				FB43908A232349A0001A7BDA /* test.html */,
 				E6A6CECF23225470000D1301 /* Main.storyboard */,
 				E6A6CED223225471000D1301 /* Assets.xcassets */,
 				E6A6CED423225471000D1301 /* LaunchScreen.storyboard */,
 				E6A6CED723225471000D1301 /* Info.plist */,
+				FB4390B2232557CF001A7BDA /* TestViewController.swift */,
 			);
 			path = MyECharts;
 			sourceTree = "<group>";
@@ -96,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				E6A6CEE72322580D000D1301 /* EChartView.swift */,
+				FB4390902324CEEE001A7BDA /* EChartOptions.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -163,6 +178,8 @@
 				FB43908B232349A0001A7BDA /* test.html in Resources */,
 				E6A6CEE62322570F000D1301 /* index.html in Resources */,
 				E6A6CED323225471000D1301 /* Assets.xcassets in Resources */,
+				FB43908F23240782001A7BDA /* highcharts-large.html in Resources */,
+				FB43908D2323FA13001A7BDA /* area-simple.html in Resources */,
 				E6A6CED123225470000D1301 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,7 +192,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6A6CECE23225470000D1301 /* ViewController.swift in Sources */,
+				FB4390912324CEEE001A7BDA /* EChartOptions.swift in Sources */,
 				E6A6CEE82322580D000D1301 /* EChartView.swift in Sources */,
+				FB4390932324FA6F001A7BDA /* SwiftyJSON.swift in Sources */,
+				FB4390B3232557CF001A7BDA /* TestViewController.swift in Sources */,
 				E6A6CECC23225470000D1301 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

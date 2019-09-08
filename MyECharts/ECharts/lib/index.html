@@ -2,90 +2,65 @@
 <html style="height: 100%">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-        <style>
-        </style>
-
-    </head>
+            <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+            
+            </head>
     <body style="height: 100%; margin: 0">
-        <div id="container" style="height:100%;width:100%"></div>
+        <div id="container" style="height: 100%"></div>
         <script type="text/javascript" src="./core/echarts.min.js"></script>
         <script type="text/javascript">
-            var dom = document.getElementById("container");
-            var myChart = echarts.init(dom);
-            var app = {};
-            option = null;
-            function getData(n) {
-                var arr = [],
-                i,
-                a,
-                b,
-                c,
-                spike;
-                for (i = 0; i < n; i = i + 1) {
-                    if (i % 100 === 0) {
-                        a = 2 * Math.random();
-                    }
-                    if (i % 1000 === 0) {
-                        b = 2 * Math.random();
-                    }
-                    if (i % 10000 === 0) {
-                        c = 2 * Math.random();
-                    }
-                    if (i % 50000 === 0) {
-                        spike = 10;
-                    } else {
-                        spike = 0;
-                    }
-                    arr.push([
-                              i,
-                              2 * Math.sin(i / 100) + a + b + c + spike + Math.random()
-                              ]);
-                }
-                return arr;
-            }
-        var n = 5000,
-        data = getData(n);
+        var dom = document.getElementById("container");
+        var myChart = echarts.init(dom);
+        var app = {};
+        option = null;
+
+        var base = +new Date(1968, 9, 3);
+        var oneDay = 24 * 3600 * 1000;
+        var date = [];
+        
+        var data = [Math.random() * 300];
+        
+        for (var i = 1; i < 20000; i++) {
+            var now = new Date(base += oneDay);
+            date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'));
+            data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]));
+        }
         
         option = {
-                title: {
-                    text: '测试'
-                },
-                tooltip: {
-                    trigger: 'axis'
-                },
-                legend: {
-                    data:['销量']
-                },
-                xAxis: {
-                    data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-                },
-                yAxis: {},
-                series: [{
-                         name: '销量',
-                         type: 'line',
-                         data: data
-                         }]
-            };;
+            tooltip: {
+                trigger: 'axis',
+            },
+            title: {
+                left: 'center',
+                text: '大数据量面积图',
+            },
+            xAxis: {
+            },
+            yAxis: {
+            },
+            series: [{
+                     data: [],
+                     type: 'line'
+                     }]
+        };
+
+        function updateData(text) {
+            let option = JSON.parse(text);
+            alert(text);
+            myChart.setOption({
+                              title: {
+                              text:option.title
+                              },
+                              //series: option.series
+                              });
+        }
+        function refresh(optionData) {
+            myChart.setOption(optionData,true);
+        }
         if (option && typeof option === "object") {
             myChart.setOption(option, true);
-        }
-        function resizeContainer(width,height) {
-            alert(width);
-            var container = document.getElementById("container")
-            container.style.height = width+ 'px';
-            container.style.width = height + 'px';
-            //根据宽高调整
-            myChart.resize();
-        }
-        function resize2(cssText) {
-            var container = document.getElementById("container")
-            container.style.cssText = cssText;
-            myChart.resize();
-        }
-        function test() {
-            alert("你好，我是一个警告框！");
         }
         </script>
     </body>
 </html>
+
